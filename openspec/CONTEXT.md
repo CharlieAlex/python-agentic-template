@@ -1,4 +1,4 @@
-# [[ project_name ]]
+# {{ project_name  }}
 
 {One or two sentence description of what this context is and why it exists.}
 

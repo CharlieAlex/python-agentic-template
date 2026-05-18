@@ -1,7 +1,7 @@
 schema: spec-driven
 project:
-  name: "[[ project_name ]]"
-  description: "[[ project_description ]]"
+  name: "{{ project_name }}"
+  description: "{{ project_description }}"
 
 tech_stack:
   language: "Python 3.12+"
