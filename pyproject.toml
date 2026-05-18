@@ -1,0 +1,74 @@
+[project]
+name = "[[ project_slug ]]"
+version = "0.1.0"
+description = "[[ project_description ]]"
+authors = [{ name = "[[ author_name ]]", email = "[[ author_email ]]" }]
+requires-python = ">=3.12"
+
+dependencies = [
+    "pandas",
+    "python-dotenv",
+    "pydantic",
+    "pydantic-settings",
+    "openpyxl",
+    "matplotlib",
+    "mlflow>=3.9.0",
+    "loguru",
+    "rich",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ipykernel",
+    "ruff>=0.12.7",
+    "pytest>=8.0",
+    "pytest-html>=4.0",
+    "pytest-sugar>=1.0",
+    "pytest-cov>=6.0",
+    "pytest-mock>=3.14",
+    "pytest-xdist>=3.5",
+    "markitdown[docx]",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["app"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = [
+    "-v",
+    "--tb=short",
+    "--strict-markers",
+    "--html=docs/reports/test_report.html",
+    "--self-contained-html",
+    "--cov=app",
+    "--cov-report=term-missing",
+    "--cov-report=html:docs/reports/coverage_html"
+]
+markers = [
+    "unit: 單元測試 (不需外部服務)",
+    "integration: 整合測試"
+]
+
+[tool.coverage.run]
+source = ["app"]
+omit = ["tests/*"]
+
+[tool.ruff]
+line-length = 120
+indent-width = 4
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "B", "C4", "UP", "PL", "NPY", "PD", "TID", "T"]
+preview = true
+ignore = ["E226", "E227", "E252", "E402", "B006", "B008", "B905", "C901", "W191", "UP045", "PLR0913", "PLR0917", "PLR0912", "PLR0914", "PLR0915", "PLR2004", "PLR6104", "PD015", "D100", "D400", "D409"]
+unfixable = ["D"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"

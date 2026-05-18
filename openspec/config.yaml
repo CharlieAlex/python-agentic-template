@@ -1,0 +1,37 @@
+schema: spec-driven
+project:
+  name: "[[ project_name ]]"
+  description: "[[ project_description ]]"
+
+tech_stack:
+  language: "Python 3.12+"
+  package_manager: "uv"
+  core_libraries:
+    - "pandas"
+    - "pydantic (v2)"
+    - "mlflow (tracking)"
+    - "loguru (logging)"
+  task_runner: "just"
+
+coding_conventions:
+  linting: "ruff (rules defined in pyproject.toml)"
+  type_hints: "Mandatory (from __future__ import annotations)"
+  workflow: "Test-Driven Development (TDD) required"
+
+rules:
+  definitions:
+    - "All domain terminology MUST strictly reference `openspec/CONTEXT.md`."
+
+  specs:
+    - "Scope: Mandatory for files in `openspec/specs/`; optional for design/proposal/tasks."
+    - "Format: [ID] (Keyword): [WHEN] [Subject] [SHALL/SHOULD] [Action]."
+    - "Language: Content in Traditional Chinese; Keywords (WHEN, SHALL, SHOULD, IF) in English."
+    - "Semantics: SHALL (Hard constraint/Logic); SHOULD (Soft constraint/Optimization goal)."
+
+  traceability:
+    - "Requirement Mapping: Every REQ-ID must be documented in the corresponding test function's docstring."
+    - "Granularity: One test function may verify multiple related REQ-IDs to maintain suite efficiency."
+
+  execution:
+    - "Tooling: All tasks MUST be executed via `uv` (e.g., `uv run just test`)."
+    - "CI/CD: No code merge without passing `just test` with 100% core logic coverage."
