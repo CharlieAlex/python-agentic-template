@@ -27,7 +27,7 @@ _exclude:
   - ".DS_Store"
 
 _tasks:
+  - "just venv"
   - "git init"
   - "git add ."
   - "git commit -m 'first init'"
-  - "just venv"
