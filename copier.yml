@@ -1,25 +1,25 @@
 project_name:
-  type: string
+  type: str
   help: "請輸入專案名稱 (例如: My Awesome Project)"
   placeholder: "My Awesome Project"
 
 project_slug:
-  type: string
+  type: str
   help: "請輸入專案資料夾/套件名稱 (小寫與連字號，例如: airport-transfer-schedule)"
   default: "{{ project_name | lower | replace(' ', '-') }}"
 
 project_description:
-  type: string
+  type: str
   help: "一句話描述這個專案"
   default: "An agentic coding optimization project."
 
 author_name:
-  type: string
+  type: str
   help: "作者姓名"
   default: "Heisenberg"
 
 author_email:
-  type: string
+  type: str
   help: "作者 Email"
   default: "charliealex0101@gmail.com"
 
