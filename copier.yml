@@ -1,7 +1,6 @@
 project_name:
   type: str
   help: "請輸入專案名稱 (例如: My Awesome Project)"
-  placeholder: "My Awesome Project"
 
 project_slug:
   type: str
